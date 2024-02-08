@@ -35,17 +35,17 @@ class AuthMethodsScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Space(
-              height: 10.h,
+              height: 4.h,
             ),
             Center(
-              child: SvgPicture.asset(
+              child: Image.asset(
                 AppImages.authMethods,
                 width: 86.w,
                 height: 28.h,
               ),
             ),
             Space(
-              height: 5.h,
+              height: 4.h,
             ),
             Text(
               LocaleKeys.auth_method_title,
@@ -65,15 +65,16 @@ class AuthMethodsScreen extends StatelessWidget {
               ).tr(),
             ),
             Space(
-              height: 8.h,
+              height: 6.h,
             ),
             MainButton(
+              color: AppTheme.primary900,
               width: 86.w,
-              height: 7.h,
+              height: 6.5.h,
               label: Text(
                 LocaleKeys.login,
                 style: AppTheme.mainTextStyle(
-                    color: AppTheme.neutral100, fontSize: 14.sp),
+                    color: AppTheme.neutral100, fontSize: 13.sp),
               ).tr(),
               onTap: ()=> navigateToLoginScreen(context),
             ),
@@ -89,12 +90,29 @@ class AuthMethodsScreen extends StatelessWidget {
             ),
             MainButton(
               width: 86.w,
-              height: 7.h,
-              color: AppTheme.neutral600,
+              height: 6.5.h,
+              border: Border.all(color: AppTheme.primary900,width: .2.w),
+              color: Colors.transparent,
               label: Text(
-                LocaleKeys.register,
+                LocaleKeys.register_buyer,
                 style: AppTheme.mainTextStyle(
-                    color: AppTheme.neutral100, fontSize: 14.sp),
+                    color: AppTheme.primary900, fontSize: 13.sp),
+              ).tr(),
+              onTap: ()=> navigateToRegistrationScreen(context),
+            ),
+
+            Space(
+              height:3.h,
+            ),
+            MainButton(
+              width: 86.w,
+              height: 6.5.h,
+              border: Border.all(color: AppTheme.primary900,width: 0.2.w),
+              color: Colors.transparent,
+              label: Text(
+                LocaleKeys.register_tailor,
+                style: AppTheme.mainTextStyle(
+                    color: AppTheme.primary900, fontSize: 13.sp),
               ).tr(),
               onTap: ()=> navigateToRegistrationScreen(context),
             ),

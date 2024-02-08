@@ -28,7 +28,7 @@ class CustomTextField extends StatelessWidget {
     Key? key,
     this.width,
     this.height,
-    this.borderRadius =  const BorderRadius.all(Radius.circular(100000)),
+    this.borderRadius =  const BorderRadius.all(Radius.circular(12)),
     this.controller,
     this.hint,
     this.label,
@@ -63,7 +63,7 @@ class CustomTextField extends StatelessWidget {
         controller: controller,
         decoration: InputDecoration(
           suffixIcon: suffixIcon,
-          contentPadding: EdgeInsets.symmetric(vertical: (height == null)? 1.8.h : height!,horizontal: 1.w), // Adjust the vertical padding as needed
+          contentPadding: EdgeInsets.symmetric(vertical: (height == null)? 1.5.h : height!,horizontal: 1.w), // Adjust the vertical padding as needed
 
           hintText: hint,
           labelText: label,

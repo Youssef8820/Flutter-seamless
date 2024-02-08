@@ -1,12 +1,13 @@
 import 'package:dartz/dartz.dart';
-import 'package:smart_soft/core/di/app_module.dart';
-import 'package:smart_soft/core/errors/failure.dart';
-import 'package:smart_soft/core/infrastructure/services/network_service.dart';
-import 'package:smart_soft/features/auth/data/data_source/remote_data_source/firebase_service.dart';
-import 'package:smart_soft/features/auth/domain/model/user_model.dart';
-import 'package:smart_soft/features/auth/domain/repo/auth_repo.dart';
 
+
+import '../../../../core/di/app_module.dart';
 import '../../../../core/errors/exception.dart';
+import '../../../../core/errors/failure.dart';
+import '../../../../core/infrastructure/services/network_service.dart';
+import '../../domain/model/user_model.dart';
+import '../../domain/repo/auth_repo.dart';
+import '../data_source/remote_data_source/firebase_service.dart';
 
 class AuthRepoImpl implements AuthRepo {
 

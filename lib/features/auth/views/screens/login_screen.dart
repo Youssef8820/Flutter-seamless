@@ -10,6 +10,7 @@ import 'package:smart_soft/features/auth/views/blocs/login/login_cubit.dart';
 
 import '../../../../core/config/app_images.dart';
 import '../../../../core/config/app_theme.dart';
+import '../../../../core/views/widgets/custom_back_button.dart';
 import '../../../../core/views/widgets/main_button.dart';
 import '../../../../core/views/widgets/space.dart';
 import '../../../../generated/locale_keys.g.dart';
@@ -27,19 +28,13 @@ class LoginScreen extends StatelessWidget {
           children: [
 
             Space(
-              height: 6.h,
+              height: 2.h,
             ),
 
-            Center(
-              child: SvgPicture.asset(
-                AppImages.login,
-                width: 86.w,
-                height: 20.h,
-              ),
-            ),
+            CustomBackButton(),
 
             Space(
-              height: 3.h,
+              height: 4.h,
             ),
 
             Text(
@@ -55,13 +50,20 @@ class LoginScreen extends StatelessWidget {
             Text(
               LocaleKeys.login_description,
               style: AppTheme.mainTextStyle(
-                  color: AppTheme.neutral700, fontSize: 12.sp),
+                  color: AppTheme.neutral900, fontSize: 12.sp),
             ).tr(),
 
             Space(
-              height: 4.h,
+              height: 3.h,
             ),
-
+            Text(
+              LocaleKeys.email,
+              style: AppTheme.mainTextStyle(
+                  color: AppTheme.neutral400, fontSize: 12.sp),
+            ).tr(),
+            Space(
+              height: 0.5.h,
+            ),
             CustomTextField(
               controller: context.read<LoginCubit>().emailController,
               prefixIcon: Padding(
@@ -73,11 +75,19 @@ class LoginScreen extends StatelessWidget {
                 ),
 
               ),
-              label: LocaleKeys.email.tr(),
               hint: LocaleKeys.email_hint.tr(),
             ),
             Space(
-              height: 2.5.h,
+              height: 1.h,
+            ),
+
+            Text(
+              LocaleKeys.password,
+              style: AppTheme.mainTextStyle(
+                  color: AppTheme.neutral400, fontSize: 12.sp),
+            ).tr(),
+            Space(
+              height: 0.5.h,
             ),
             CustomTextField(
               controller: context.read<LoginCubit>().passwordController,
@@ -90,11 +100,10 @@ class LoginScreen extends StatelessWidget {
                 ),
 
               ),
-              label: LocaleKeys.password.tr(),
               hint: LocaleKeys.password_hint.tr(),
             ),
             Space(
-              height: 1.8.h,
+              height: 2.h,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -114,7 +123,7 @@ class LoginScreen extends StatelessWidget {
                   child: Text(
                     LocaleKeys.forgot_password.tr(),
                     style: AppTheme.mainTextStyle(
-                        color: AppTheme.neutral700, fontSize: 12.sp),
+                        color: AppTheme.primary900, fontSize: 12.sp),
                   ).tr(),
                 ),
               ],
@@ -141,32 +150,46 @@ class LoginScreen extends StatelessWidget {
                   child: Text(
                     LocaleKeys.register.tr(),
                     style: AppTheme.mainTextStyle(
-                        color: AppTheme.neutral900, fontSize: 12.sp),
+                        color: AppTheme.primary900, fontSize: 12.sp),
                   ).tr(),
                 ),
               ],
             ),
 
             Space(
-              height: 3.h,
+              height: 2.h,
             ),
 
             BlocConsumer<LoginCubit, LoginState>(
               listener: (context, state) {},
               builder: (context, state) {
                 return MainButton(
+                          color: AppTheme.primary900,
                           width: 86.w,
-                          height: 7.h,
+                          height: 6.5.h,
                           label: (state is LoginLoading)? CustomProgressIndicator(
                             color: AppTheme.neutral100,
                           ) : Text(
                             LocaleKeys.login,
                             style: AppTheme.mainTextStyle(
-                                color: AppTheme.neutral100, fontSize: 14.sp),
+                                color: AppTheme.neutral100, fontSize: 13.sp),
                           ).tr(),
                           onTap: ()=> context.read<LoginCubit>().onLoginClick(context),
                         );
               },
+            ),
+
+            Space(
+              height: 5.h,
+            ),
+
+            Center(
+              child: Text(
+                LocaleKeys.our_terms,
+                style: AppTheme.mainTextStyle(
+                    color: AppTheme.neutral400, fontSize: 10.sp,),
+                  textAlign: TextAlign.center
+              ).tr(),
             ),
 
 

@@ -16,8 +16,8 @@ class CustomPageIndicator extends StatelessWidget {
       activeIndex: index,
       count: count,
       effect: WormEffect(
-        dotColor: AppTheme.neutral300,
-        activeDotColor: AppTheme.neutral900,
+        dotColor: AppTheme.neutral200,
+        activeDotColor: AppTheme.primary900,
         dotHeight: 2.5.w,
         dotWidth: 2.5.w
       ),

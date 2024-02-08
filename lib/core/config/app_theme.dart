@@ -1,15 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:sizer/sizer.dart';
 
 abstract class AppTheme {
 
-
-
   static TextStyle? mainTextStyle ({Color? color, double? fontSize,FontWeight? fontWeight}) => GoogleFonts.cairo(color: color, fontSize: fontSize,fontWeight: fontWeight,);
-
-
 
   static const Color neutral900 = Color(0xff111827);
   static const Color neutral800 = Color(0xff1F2937);
@@ -21,7 +16,7 @@ abstract class AppTheme {
   static const Color neutral200 = Color(0xffE5E7EB);
   static const Color neutral100 = Color(0xffF4F4F5);
 
-  static const Color primary900 = Color(0xffC70000);
+  static const Color primary900 = Color(0xff981B20);
   static const Color primary800 = Color(0xffE61E29);
   static const Color primary700 = Color(0xffE93842);
   static const Color primary600 = Color(0xffEB5058);

@@ -2,11 +2,12 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sizer/sizer.dart';
-import 'package:smart_soft/core/bloc/core_cubit.dart';
-import 'package:smart_soft/core/config/app_theme.dart';
-import 'package:smart_soft/features/auth/views/blocs/login/login_cubit.dart';
-import 'package:smart_soft/features/auth/views/blocs/register/register_cubit.dart';
-import 'package:smart_soft/features/products/views/bloc/product/product_cubit.dart';
+import 'package:smart_soft/features/auth/views/blocs/otp/otp_cubit.dart';
+import 'package:smart_soft/features/auth/views/blocs/reset_password/reset_password_cubit.dart';
+import 'core/bloc/core_cubit.dart';
+import 'core/config/app_theme.dart';
+import 'features/auth/views/blocs/login/login_cubit.dart';
+import 'features/auth/views/blocs/register/register_cubit.dart';
 
 import 'features/onboarding/view/bloc/on_boarding_cubit.dart';
 import 'features/onboarding/view/screens/on_boarding_screen.dart';
@@ -37,7 +38,8 @@ class MyApp extends StatelessWidget {
         BlocProvider(create: (_) => OnBoardingCubit()),
         BlocProvider(create: (_) => LoginCubit()),
         BlocProvider(create: (_) => RegisterCubit()),
-        BlocProvider(create: (_) => ProductCubit()),
+        BlocProvider(create: (_) => ResetPasswordCubit()),
+        BlocProvider(create: (_) => OtpCubit()),
 
       ],
       child: Sizer(

@@ -15,12 +15,26 @@
 
   "login": "Login",
   "register": "Register",
+  "register_tailor": "Register as Tailor",
+  "register_buyer": "Register as Buyer",
 
   "login_description": "Unlock Your World: Sign In for a Personalized Experience",
   "register_description": "Embark on Your Journey: Register for Exclusive Access",
 
+  "username": "Username",
+  "phone_number": "Phone number",
+  "trade_register": "Trade register",
+  "tax_id_number": "Tax ID number",
+  "upload": "Upload",
+  "registration_certificate": "Registration Certificate",
+
   "email": "Email",
   "password": "Password",
+
+  "username_hint": "Enter username",
+  "phone_number_hint": "Enter phone number",
+  "trade_register_hint": "Enter trade register",
+  "tax_id_number_hint": "Enter tax id number",
 
   "email_hint": "Enter your email",
   "password_hint": "Enter your password",
@@ -41,6 +55,15 @@
 
   "add": "Add",
   "add_product": "Add Product",
-  "home": "Home"
+  "home": "Home",
+  "our_terms": "Welcome to the SSH Company Development application, where we provide you with a powerful tool aimed at facilitating development processes and improving performance within your company",
+
+  "reset_password" : "Reset password",
+  "reset_password_sub_text" : "Enter your phone number, and we will send a text message containing four digits of advice. Do not share this number with anyone.",
+  "confirm_code": "Confirm Code",
+  "confirm_code_sub_text": "A four-digit code has been sent to your phone number via text message. Enter the code below.",
+  "didnt_recive_code": "Didn't Receive Any Messages?",
+  "resend": "Resend",
+  "confirm": "Confirm"
 
 }

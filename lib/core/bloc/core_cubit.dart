@@ -43,7 +43,7 @@ class CoreCubit extends Cubit<CoreState> {
     await EasyLocalization.ensureInitialized();
 
     // initialize database
-    database = await $FloorAppDatabase.databaseBuilder('app_database.db').build();
+    //database = await $FloorAppDatabase.databaseBuilder('app_database.db').build();
 
   }
 

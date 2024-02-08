@@ -27,27 +27,22 @@ class CustomBackButton extends StatelessWidget {
                 }
                 Navigator.pop(context);
               },
-              child: SvgPicture.asset(AppImages.arrow,
-                width: 6.w
-                ,height: 6.w,
+              child: Container(
+                padding: EdgeInsets.all(2.w),
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                  color: AppTheme.neutral200,
+                  shape: BoxShape.circle
+                ),
+                child: SvgPicture.asset(AppImages.arrow,
+                  width: 6.w
+                  ,height: 6.w,
+                ),
               )
           ),
         ),
 
-        Text(
-          LocaleKeys.add_product,
-          style: AppTheme.mainTextStyle(
-            color: AppTheme.neutral900,
-            fontSize: 20.sp,
-          ),
-          textAlign: TextAlign.center,
 
-        ).tr(),
-
-        SizedBox(
-          width: 6.w,
-          height: 6.w,
-        )
       ],
     );
   }

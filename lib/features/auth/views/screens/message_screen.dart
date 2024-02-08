@@ -11,8 +11,13 @@ import '../../../../core/views/widgets/space.dart';
 import '../../../../generated/locale_keys.g.dart';
 import '../blocs/register/register_cubit.dart';
 
-class RegisterMessageScreen extends StatelessWidget {
-  const RegisterMessageScreen({Key? key}) : super(key: key);
+class MessageScreen extends StatelessWidget {
+
+  String title;
+  String description;
+  void Function()? onTap;
+
+  MessageScreen({Key? key, required this.title,required this.description,this.onTap}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

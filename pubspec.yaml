@@ -58,6 +58,7 @@ dependencies:
   smooth_page_indicator:
   another_flushbar:
   loading_animation_widget:
+  pinput:
 
   # Service
   internet_connection_checker_plus:

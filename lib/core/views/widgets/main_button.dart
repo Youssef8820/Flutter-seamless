@@ -9,20 +9,21 @@ class MainButton extends StatelessWidget {
   Widget? label;
   GestureTapCallback? onTap;
   Color? color;
-
-  MainButton({Key? key,this.height,this.width,this.label,this.onTap,this.color}) : super(key: key);
+  Border? border;
+  MainButton({Key? key,this.height,this.width,this.label,this.onTap,this.color,this.border}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: onTap,
-      borderRadius: BorderRadius.circular(100.h),
+      borderRadius: BorderRadius.circular(4.h),
       child: Container(
         alignment: Alignment.center,
         width: width,
         height: height,
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(100.w),
+          borderRadius: BorderRadius.circular(4.w),
+          border: border,
           color: (color!= null)? color : AppTheme.neutral900,
         ),
         child: label,

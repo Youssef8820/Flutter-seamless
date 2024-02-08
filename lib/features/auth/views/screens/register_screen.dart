@@ -4,14 +4,17 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:sizer/sizer.dart';
 import 'package:smart_soft/features/auth/views/blocs/register/register_cubit.dart';
+import 'package:smart_soft/features/auth/views/widgets/certificate_upload.dart';
 
 import '../../../../core/config/app_images.dart';
 import '../../../../core/config/app_theme.dart';
+import '../../../../core/views/widgets/custom_back_button.dart';
 import '../../../../core/views/widgets/custom_progress_indicator.dart';
 import '../../../../core/views/widgets/custom_text_field.dart';
 import '../../../../core/views/widgets/main_button.dart';
 import '../../../../core/views/widgets/space.dart';
 import '../../../../generated/locale_keys.g.dart';
+import '../blocs/login/login_cubit.dart';
 
 class RegisterScreen extends StatelessWidget {
   const RegisterScreen({Key? key}) : super(key: key);
@@ -25,19 +28,13 @@ class RegisterScreen extends StatelessWidget {
           children: [
 
             Space(
-              height: 6.h,
+              height: 2.h,
             ),
 
-            Center(
-              child: SvgPicture.asset(
-                AppImages.register,
-                width: 86.w,
-                height: 20.h,
-              ),
-            ),
+            CustomBackButton(),
 
             Space(
-              height: 3.h,
+              height: 4.h,
             ),
 
             Text(
@@ -47,38 +44,138 @@ class RegisterScreen extends StatelessWidget {
                 fontSize: 25.sp,
               ),
             ).tr(),
+
+
             Space(
               height: 2.h,
             ),
+
             Text(
-              LocaleKeys.register_description,
+              LocaleKeys.username,
               style: AppTheme.mainTextStyle(
-                  color: AppTheme.neutral700, fontSize: 12.sp),
+                  color: AppTheme.neutral400, fontSize: 12.sp),
             ).tr(),
-
             Space(
-              height: 4.h,
+              height: 0.5.h,
             ),
-
             CustomTextField(
-              controller: context.read<RegisterCubit>().emailController,
+              controller: context.read<LoginCubit>().emailController,
               prefixIcon: Padding(
                 padding: EdgeInsets.all(3.w),
                 child: SvgPicture.asset(
-                  AppImages.email,
+                  AppImages.profile,
                   width: 3.w,
                   height: 3.h,
                 ),
 
               ),
-              label: LocaleKeys.email.tr(),
-              hint: LocaleKeys.email_hint.tr(),
+              hint: LocaleKeys.username_hint.tr(),
             ),
             Space(
-              height: 2.5.h,
+              height: 1.h,
+            ),
+
+            Text(
+              LocaleKeys.phone_number,
+              style: AppTheme.mainTextStyle(
+                  color: AppTheme.neutral400, fontSize: 12.sp),
+            ).tr(),
+            Space(
+              height: 0.5.h,
             ),
             CustomTextField(
-              controller: context.read<RegisterCubit>().passwordController,
+              controller: context.read<LoginCubit>().emailController,
+              prefixIcon: Padding(
+                padding: EdgeInsets.all(3.w),
+                child: SvgPicture.asset(
+                  AppImages.phone,
+                  width: 3.w,
+                  height: 3.h,
+                ),
+
+              ),
+              hint: LocaleKeys.phone_number_hint.tr(),
+            ),
+            Space(
+              height: 1.h,
+            ),
+
+            Text(
+              LocaleKeys.trade_register,
+              style: AppTheme.mainTextStyle(
+                  color: AppTheme.neutral400, fontSize: 12.sp),
+            ).tr(),
+            Space(
+              height: 0.5.h,
+            ),
+            CustomTextField(
+              controller: context.read<LoginCubit>().emailController,
+              prefixIcon: Padding(
+                padding: EdgeInsets.all(3.w),
+                child: SvgPicture.asset(
+                  AppImages.tradeRegister,
+                  width: 3.w,
+                  height: 3.h,
+                ),
+
+              ),
+              hint: LocaleKeys.trade_register_hint.tr(),
+            ),
+            Space(
+              height: 1.h,
+            ),
+
+            Text(
+              LocaleKeys.tax_id_number,
+              style: AppTheme.mainTextStyle(
+                  color: AppTheme.neutral400, fontSize: 12.sp),
+            ).tr(),
+            Space(
+              height: 0.5.h,
+            ),
+            CustomTextField(
+              controller: context.read<LoginCubit>().emailController,
+              prefixIcon: Padding(
+                padding: EdgeInsets.all(3.w),
+                child: SvgPicture.asset(
+                  AppImages.taxId,
+                  width: 3.w,
+                  height: 3.h,
+                ),
+
+              ),
+              hint: LocaleKeys.tax_id_number_hint.tr(),
+            ),
+            Space(
+              height: 1.h,
+            ),
+
+            Text(
+              LocaleKeys.registration_certificate,
+              style: AppTheme.mainTextStyle(
+                  color: AppTheme.neutral400, fontSize: 12.sp),
+            ).tr(),
+            Space(
+              height: 0.5.h,
+            ),
+            CertificateUpload(
+              width: double.infinity,
+              height: 6.h,
+            ),
+            Space(
+              height: 1.h,
+            ),
+
+            Text(
+              LocaleKeys.password,
+              style: AppTheme.mainTextStyle(
+                  color: AppTheme.neutral400, fontSize: 12.sp),
+            ).tr(),
+            Space(
+              height: 0.5.h,
+            ),
+            CustomTextField(
+              controller: context.read<LoginCubit>().emailController,
               prefixIcon: Padding(
                 padding: EdgeInsets.all(3.w),
                 child: SvgPicture.asset(
@@ -88,16 +185,12 @@ class RegisterScreen extends StatelessWidget {
                 ),
 
               ),
-              label: LocaleKeys.password.tr(),
               hint: LocaleKeys.password_hint.tr(),
             ),
-            Space(
-              height: 1.8.h,
-            ),
 
 
             Space(
-              height: 13.h,
+              height: 3.h,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -117,14 +210,14 @@ class RegisterScreen extends StatelessWidget {
                   child: Text(
                     LocaleKeys.login.tr(),
                     style: AppTheme.mainTextStyle(
-                        color: AppTheme.neutral900, fontSize: 12.sp),
+                        color: AppTheme.primary900, fontSize: 12.sp),
                   ).tr(),
                 ),
               ],
             ),
 
             Space(
-              height: 3.h,
+              height: 2.h,
             ),
 
             BlocConsumer<RegisterCubit,RegisterState>(
@@ -132,7 +225,8 @@ class RegisterScreen extends StatelessWidget {
                 builder: (context, state) {
                   return MainButton(
                             width: 86.w,
-                            height: 7.h,
+                            height: 6.5.h,
+                            color: AppTheme.primary900,
                             label: (state is RegisterLoading)? CustomProgressIndicator(
                               color: AppTheme.neutral100,
                             ) : Text(
