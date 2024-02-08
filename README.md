@@ -1,6 +1,6 @@
-# smart_soft
+# Flutter Starter Project
 
-A new Flutter project.
+A new Flutter project with onboarding, login, registration, reset password, and otp screens.
 
 ## Getting Started
 
