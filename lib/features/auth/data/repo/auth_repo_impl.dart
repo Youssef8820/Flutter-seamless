@@ -1,4 +1,5 @@
 import 'package:dartz/dartz.dart';
+import 'package:smart_soft/features/auth/data/data_source/remote_data_source/auth_remote_data_source.dart';
 
 
 import '../../../../core/di/app_module.dart';
@@ -13,6 +14,7 @@ class AuthRepoImpl implements AuthRepo {
 
   NetworkService networkService = getIt<NetworkService>();
   FirebaseService remoteDataSource = getIt<FirebaseService>();
+  AuthRemoteDataSource authRemoteDataSource = getIt<AuthRemoteDataSource>();
 
 
   @override
@@ -81,4 +83,58 @@ class AuthRepoImpl implements AuthRepo {
     }
 
   }
+
+  @override
+  Future<Either<Failure, void>> confirmOtp({required String otp}) async {
+    try{
+
+      if(!await networkService.isConnected){
+        return left(ServiceFailure(
+            "Please check your internet connection",
+            failureCode: 0
+        ));
+      }
+
+      await authRemoteDataSource.confirmOtp(otp: otp);
+
+      return right(null);
+
+    }on RemoteDataException catch (e){
+      return left(RemoteDataFailure(e.message, failureCode: 1));
+
+    } on ServiceException catch (e){
+      return left(ServiceFailure(e.message,failureCode: 2));
+
+    } catch (e) {
+      return left(InternalFailure(e.toString(),failureCode: 3));
+    }
+  }
+
+  @override
+  Future<Either<Failure, void>> sendOtp({required String phoneNumber}) async {
+    try{
+
+      if(!await networkService.isConnected){
+        return left(ServiceFailure(
+            "Please check your internet connection",
+            failureCode: 0
+        ));
+      }
+
+      await authRemoteDataSource.sendOtp(phoneNumber: phoneNumber);
+
+      return right(null);
+
+    }on RemoteDataException catch (e){
+      return left(RemoteDataFailure(e.message, failureCode: 1));
+
+    } on ServiceException catch (e){
+      return left(ServiceFailure(e.message,failureCode: 2));
+
+    } catch (e) {
+      return left(InternalFailure(e.toString(),failureCode: 3));
+    }
+  }
+
+
 }

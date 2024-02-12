@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:sizer/sizer.dart';
 
+import '../../config/app_images.dart';
 import '../../config/app_theme.dart';
 
-class CustomTextField extends StatelessWidget {
-
-
+class CustomTextField extends StatefulWidget {
   double? width;
   double? height;
   BorderRadius borderRadius;
@@ -23,12 +23,13 @@ class CustomTextField extends StatelessWidget {
   void Function(String)? onFieldSubmitted;
   bool enabled;
   FocusNode? focusNode;
+  bool isSecure;
 
   CustomTextField({
     Key? key,
     this.width,
     this.height,
-    this.borderRadius =  const BorderRadius.all(Radius.circular(12)),
+    this.borderRadius = const BorderRadius.all(Radius.circular(12)),
     this.controller,
     this.hint,
     this.label,
@@ -43,30 +44,54 @@ class CustomTextField extends StatelessWidget {
     this.onFieldSubmitted,
     this.enabled = true,
     this.focusNode,
+    this.isSecure = false
   }) : super(key: key);
+
+  @override
+  State<CustomTextField> createState() => _CustomTextFieldState();
+}
+
+class _CustomTextFieldState extends State<CustomTextField> {
+  bool displaySecureText = true;
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: width,
-      height: null,
+      width: widget.width,
       child: TextFormField(
 
-        focusNode: focusNode,
-        onTap: onTap,
-        onFieldSubmitted: onFieldSubmitted,
-        keyboardType: keyboardType,
-        enabled: enabled,
-        onTapOutside: onTapOutside,
-        onChanged: onChanged,
-        validator: validator,
-        controller: controller,
+        focusNode: widget.focusNode,
+        onTap: widget.onTap,
+        onFieldSubmitted: widget.onFieldSubmitted,
+        keyboardType: widget.keyboardType,
+        enabled: widget.enabled,
+        onTapOutside: widget.onTapOutside,
+        onChanged: widget.onChanged,
+        validator: widget.validator,
+        controller: widget.controller,
+        obscureText: widget.isSecure && displaySecureText,
         decoration: InputDecoration(
-          suffixIcon: suffixIcon,
-          contentPadding: EdgeInsets.symmetric(vertical: (height == null)? 1.5.h : height!,horizontal: 1.w), // Adjust the vertical padding as needed
+          suffixIcon: (widget.isSecure)? Padding(
+            padding: EdgeInsets.all(3.w),
+            child: InkWell(
+              onTap: (){
+                displaySecureText = !displaySecureText;
+                setState(() {});
+              },
+              child: SvgPicture.asset(
+                AppImages.eye,
+                width: 3.w,
+                height: 3.h,
+              ),
+            ),
+          ) : null,
+          contentPadding: EdgeInsets.symmetric(
+              vertical: (widget.height == null) ? 1.5.h : widget.height!, horizontal: 1.w),
+          // Adjust the vertical padding as needed
 
-          hintText: hint,
-          labelText: label,
+
+          hintText: widget.hint,
+          labelText: widget.label,
 
           labelStyle: TextStyle(
             color: AppTheme.neutral400,
@@ -74,7 +99,9 @@ class CustomTextField extends StatelessWidget {
             fontWeight: FontWeight.w400,
           ),
 
-          prefixIcon: prefixIcon,
+
+
+          prefixIcon: widget.prefixIcon,
 
           hintStyle: TextStyle(
             color: AppTheme.neutral400,
@@ -83,31 +110,29 @@ class CustomTextField extends StatelessWidget {
           ),
 
           disabledBorder: OutlineInputBorder(
-              borderSide: const BorderSide(color: AppTheme.neutral400,width: 1),
-              borderRadius: borderRadius
-          ),
+              borderSide:
+                  const BorderSide(color: AppTheme.neutral400, width: 1),
+              borderRadius: widget.borderRadius),
 
           enabledBorder: OutlineInputBorder(
-              borderSide: const BorderSide(color: AppTheme.neutral300,width: 1),
-              borderRadius: borderRadius
-          ),
+              borderSide:
+                  const BorderSide(color: AppTheme.neutral300, width: 1),
+              borderRadius: widget.borderRadius),
 
           focusedBorder: OutlineInputBorder(
-              borderSide: const BorderSide(color: AppTheme.neutral900,width: 1),
-              borderRadius: borderRadius
-          ),
+              borderSide:
+                  const BorderSide(color: AppTheme.neutral900, width: 1),
+              borderRadius: widget.borderRadius),
 
           errorBorder: OutlineInputBorder(
-              borderSide: const BorderSide(color: AppTheme.error,width: 1),
-              borderRadius: borderRadius
-          ),
+              borderSide: const BorderSide(color: AppTheme.error, width: 1),
+              borderRadius: widget.borderRadius),
 
           focusedErrorBorder: OutlineInputBorder(
-              borderSide: const BorderSide(color: AppTheme.error,width: 1),
-              borderRadius: borderRadius
-          ),
+              borderSide: const BorderSide(color: AppTheme.error, width: 1),
+              borderRadius: widget.borderRadius),
         ),
-        onEditingComplete: onEditingComplete,
+        onEditingComplete: widget.onEditingComplete,
       ),
     );
   }

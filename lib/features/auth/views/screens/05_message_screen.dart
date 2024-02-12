@@ -52,15 +52,18 @@ class MessageScreen extends StatelessWidget {
                 ),
                   textAlign: TextAlign.center
               ).tr(),
+
               Space(
                 height: 2.h,
               ),
+
               Text(
                 LocaleKeys.all_done_description,
                 style: AppTheme.mainTextStyle(
-                    color: AppTheme.neutral700, fontSize: 12.sp),
-                  textAlign: TextAlign.center
-
+                    color: AppTheme.neutral700,
+                    fontSize: 12.sp
+                ),
+                textAlign: TextAlign.center
               ).tr(),
 
               Space(
@@ -73,9 +76,11 @@ class MessageScreen extends StatelessWidget {
                 label: Text(
                   LocaleKeys.done,
                   style: AppTheme.mainTextStyle(
-                      color: AppTheme.neutral100, fontSize: 14.sp),
+                      color: AppTheme.neutral100,
+                      fontSize: 14.sp
+                  ),
                 ).tr(),
-                onTap: ()=> context.read<RegisterCubit>().onDoneClick(context),
+                onTap: () => context.read<RegisterCubit>().onDoneClick(context),
               )
 
             ],

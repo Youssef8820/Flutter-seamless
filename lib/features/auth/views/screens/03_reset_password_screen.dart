@@ -12,7 +12,6 @@ import '../../../../core/views/widgets/custom_text_field.dart';
 import '../../../../core/views/widgets/main_button.dart';
 import '../../../../core/views/widgets/space.dart';
 import '../../../../generated/locale_keys.g.dart';
-import '../blocs/login/login_cubit.dart';
 
 class ResetPasswordScreen extends StatelessWidget {
   const ResetPasswordScreen({super.key});
@@ -69,18 +68,22 @@ class ResetPasswordScreen extends StatelessWidget {
             Space(
               height: 0.5.h,
             ),
-            CustomTextField(
-              controller: context.read<ResetPasswordCubit>().phoneNumberController,
-              prefixIcon: Padding(
-                padding: EdgeInsets.all(3.w),
-                child: SvgPicture.asset(
-                  AppImages.phone,
-                  width: 3.w,
-                  height: 3.h,
-                ),
+            Form(
+              key: context.read<ResetPasswordCubit>().formKey,
+              child: CustomTextField(
+                controller: context.read<ResetPasswordCubit>().phoneNumberController,
+                validator: (_)=> context.read<ResetPasswordCubit>().validatePhone(),
+                prefixIcon: Padding(
+                  padding: EdgeInsets.all(3.w),
+                  child: SvgPicture.asset(
+                    AppImages.phone,
+                    width: 3.w,
+                    height: 3.h,
+                  ),
 
+                ),
+                hint: LocaleKeys.phone_number_hint.tr(),
               ),
-              hint: LocaleKeys.phone_number_hint.tr(),
             ),
 
             Space(

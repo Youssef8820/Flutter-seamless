@@ -6,25 +6,26 @@ import 'package:smart_soft/core/config/app_theme.dart';
 class PinTextField extends StatelessWidget {
   void Function(String)? onCompleted;
   void Function(String)? onChange;
+  String? Function(String?)? validator;
 
-  PinTextField({super.key, this.onCompleted,this.onChange});
+  PinTextField({super.key, this.onCompleted,this.onChange,this.validator});
 
   @override
   Widget build(BuildContext context) {
     final defaultPinTheme = PinTheme(
       width: 20.w,
-      height: 8.h,
+      height: 6.h,
       textStyle: AppTheme.mainTextStyle(
           color: AppTheme.neutral900, fontSize: 18.sp),
       decoration: BoxDecoration(
         border: Border.all(color: AppTheme.neutral300),
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(15),
       ),
     );
 
     final focusedPinTheme = defaultPinTheme.copyDecorationWith(
       border: Border.all(color: AppTheme.neutral500),
-      borderRadius: BorderRadius.circular(20),
+      borderRadius: BorderRadius.circular(15),
     );
 
     final submittedPinTheme = defaultPinTheme.copyWith(
@@ -34,8 +35,10 @@ class PinTextField extends StatelessWidget {
     );
 
     return Pinput(
+      length: 6,
       defaultPinTheme: defaultPinTheme,
       focusedPinTheme: focusedPinTheme,
+      validator: validator,
       submittedPinTheme: submittedPinTheme,
       pinputAutovalidateMode: PinputAutovalidateMode.onSubmit,
       showCursor: true,

@@ -16,3 +16,5 @@ class RegisterError extends RegisterState {
 }
 
 class RegisterLoading extends RegisterState {}
+
+class RegisterPickPhoto extends RegisterState {}

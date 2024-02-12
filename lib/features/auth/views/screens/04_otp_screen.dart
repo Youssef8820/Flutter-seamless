@@ -10,6 +10,7 @@ import 'package:smart_soft/features/auth/views/widgets/pin_text_field.dart';
 import '../../../../core/config/app_images.dart';
 import '../../../../core/config/app_theme.dart';
 import '../../../../core/views/widgets/custom_back_button.dart';
+import '../../../../core/views/widgets/custom_progress_indicator.dart';
 import '../../../../core/views/widgets/custom_text_field.dart';
 import '../../../../core/views/widgets/main_button.dart';
 import '../../../../core/views/widgets/space.dart';
@@ -17,7 +18,10 @@ import '../../../../generated/locale_keys.g.dart';
 import '../blocs/login/login_cubit.dart';
 
 class OtpScreen extends StatelessWidget {
-  const OtpScreen({super.key});
+
+  String phoneNumber;
+
+  OtpScreen({super.key,required this.phoneNumber});
 
   @override
   Widget build(BuildContext context) {
@@ -47,8 +51,6 @@ class OtpScreen extends StatelessWidget {
               ),
             ).tr(),
 
-
-
             Space(
               height: 2.h,
             ),
@@ -63,15 +65,19 @@ class OtpScreen extends StatelessWidget {
               height: 3.h,
             ),
 
-
-            PinTextField(
-              onChange: context.read<OtpCubit>().onPinChange,
-              onCompleted: (pin)=> context.read<OtpCubit>().onConfirmClick(context),
+            Form(
+              key: context.read<OtpCubit>().formKey,
+              child: PinTextField(
+                onChange: context.read<OtpCubit>().onPinChange,
+                validator: (_)=> context.read<OtpCubit>().validatePin(),
+                onCompleted: (pin)=> context.read<OtpCubit>().onConfirmClick(context),
+              ),
             ),
 
             Space(
               height: 1.h,
             ),
+
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -82,17 +88,20 @@ class OtpScreen extends StatelessWidget {
                   style: AppTheme.mainTextStyle(
                       color: AppTheme.neutral400, fontSize: 12.sp),
                 ).tr(),
+
                 Space(
                   width: 2.w,
                 ),
+
                 InkWell(
-                  onTap: () => context.read<OtpCubit>().onResendClick(),
+                  onTap: () => context.read<OtpCubit>().onResendClick(context,phoneNumber),
                   child: Text(
                     LocaleKeys.resend.tr(),
                     style: AppTheme.mainTextStyle(
                         color: AppTheme.primary900, fontSize: 12.sp),
                   ).tr(),
                 ),
+
               ],
             ),
 
@@ -100,17 +109,25 @@ class OtpScreen extends StatelessWidget {
               height: 25.h,
             ),
 
-            MainButton(
-              color: AppTheme.primary900,
-              width: 86.w,
-              height: 6.5.h,
-              label: Text(
-                LocaleKeys.confirm,
-                style: AppTheme.mainTextStyle(
-                    color: AppTheme.neutral100, fontSize: 13.sp),
-              ).tr(),
-              onTap: () => context.read<OtpCubit>().onConfirmClick(context),
+            BlocConsumer<OtpCubit, OtpState>(
+              listener: (context, state) {},
+              builder: (context, state) {
+                return MainButton(
+                          color: AppTheme.primary900,
+                          width: 86.w,
+                          height: 6.5.h,
+                          label: (state is OtpLoading)? CustomProgressIndicator(
+                            color: AppTheme.neutral100,
+                          ) :Text(
+                            LocaleKeys.confirm,
+                            style: AppTheme.mainTextStyle(
+                                color: AppTheme.neutral100, fontSize: 13.sp),
+                          ).tr(),
+                          onTap: () => context.read<OtpCubit>().onConfirmClick(context),
+                        );
+              },
             ),
+
           ],
         ),
       ),

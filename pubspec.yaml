@@ -41,13 +41,19 @@ dependencies:
   # Functional dart
   dartz:
   equatable:
+  regexpattern:
+  async:
 
   # Local Storage
   floor:
 
+  # Services
+  image_picker:
+
   # Firebase
   firebase_core:
   firebase_auth:
+  cloud_firestore:
   activout_firebase_options_selector:
 
   # UI
@@ -59,6 +65,7 @@ dependencies:
   another_flushbar:
   loading_animation_widget:
   pinput:
+
 
   # Service
   internet_connection_checker_plus:

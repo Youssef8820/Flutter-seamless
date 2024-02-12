@@ -5,8 +5,8 @@ import 'package:sizer/sizer.dart';
 import 'package:smart_soft/core/config/app_images.dart';
 import 'package:smart_soft/core/views/widgets/custom_divider.dart';
 import 'package:smart_soft/core/views/widgets/space.dart';
-import 'package:smart_soft/features/auth/views/screens/login_screen.dart';
-import 'package:smart_soft/features/auth/views/screens/register_screen.dart';
+import 'package:smart_soft/features/auth/views/screens/01_login_screen.dart';
+import 'package:smart_soft/features/auth/views/screens/02_register_screen.dart';
 import 'package:smart_soft/generated/locale_keys.g.dart';
 
 import '../../../../core/config/app_theme.dart';

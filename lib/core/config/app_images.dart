@@ -20,5 +20,7 @@ class AppImages {
   static String tradeRegister = "images/trade_register.svg";
   static String upload = "images/upload.svg";
 
+  static String eye = "images/eye.svg";
+
 
 }

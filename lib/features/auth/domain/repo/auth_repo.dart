@@ -8,4 +8,9 @@ abstract class AuthRepo {
 
   Future<Either<Failure,UserModel>> register({required String email,required String password});
 
+  Future<Either<Failure,void>> sendOtp({required String phoneNumber});
+
+  Future<Either<Failure,void>> confirmOtp({required String otp});
+
+
 }

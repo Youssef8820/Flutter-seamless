@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
-import 'package:smart_soft/features/auth/views/screens/auth_methods_screen.dart';
+import 'package:smart_soft/features/auth/views/screens/00_auth_methods_screen.dart';
 
 part 'on_boarding_state.dart';
 

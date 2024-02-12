@@ -56,52 +56,69 @@ class LoginScreen extends StatelessWidget {
             Space(
               height: 3.h,
             ),
-            Text(
-              LocaleKeys.email,
-              style: AppTheme.mainTextStyle(
-                  color: AppTheme.neutral400, fontSize: 12.sp),
-            ).tr(),
-            Space(
-              height: 0.5.h,
-            ),
-            CustomTextField(
-              controller: context.read<LoginCubit>().emailController,
-              prefixIcon: Padding(
-                padding: EdgeInsets.all(3.w),
-                child: SvgPicture.asset(
-                  AppImages.email,
-                  width: 3.w,
-                  height: 3.h,
+
+
+            Form(
+              key: context.read<LoginCubit>().formKey,
+              child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  LocaleKeys.phone_number,
+                  style: AppTheme.mainTextStyle(
+                      color: AppTheme.neutral400, fontSize: 12.sp),
+                ).tr(),
+                Space(
+                  height: 0.5.h,
                 ),
 
-              ),
-              hint: LocaleKeys.email_hint.tr(),
-            ),
-            Space(
-              height: 1.h,
-            ),
 
-            Text(
-              LocaleKeys.password,
-              style: AppTheme.mainTextStyle(
-                  color: AppTheme.neutral400, fontSize: 12.sp),
-            ).tr(),
-            Space(
-              height: 0.5.h,
-            ),
-            CustomTextField(
-              controller: context.read<LoginCubit>().passwordController,
-              prefixIcon: Padding(
-                padding: EdgeInsets.all(3.w),
-                child: SvgPicture.asset(
-                  AppImages.password,
-                  width: 3.w,
-                  height: 3.h,
+                CustomTextField(
+                  controller: context.read<LoginCubit>().phoneNumberController,
+                  validator: (_)=> context.read<LoginCubit>().validatePhone(),
+
+                  prefixIcon: Padding(
+                    padding: EdgeInsets.all(3.w),
+                    child: SvgPicture.asset(
+                      AppImages.phone,
+                      width: 3.w,
+                      height: 3.h,
+                    ),
+
+                  ),
+                  hint: LocaleKeys.phone_number_hint.tr(),
+                ),
+                Space(
+                  height: 1.h,
                 ),
 
-              ),
-              hint: LocaleKeys.password_hint.tr(),
-            ),
+                Text(
+                  LocaleKeys.password,
+                  style: AppTheme.mainTextStyle(
+                      color: AppTheme.neutral400, fontSize: 12.sp),
+                ).tr(),
+                Space(
+                  height: 0.5.h,
+                ),
+                CustomTextField(
+                  controller: context.read<LoginCubit>().passwordController,
+                  validator: (_)=> context.read<LoginCubit>().validatePassword(),
+                  prefixIcon: Padding(
+                    padding: EdgeInsets.all(3.w),
+                    child: SvgPicture.asset(
+                      AppImages.password,
+                      width: 3.w,
+                      height: 3.h,
+                    ),
+
+                  ),
+                  hint: LocaleKeys.password_hint.tr(),
+                  isSecure: true
+                ),
+              ],
+            )),
+
+
             Space(
               height: 2.h,
             ),
@@ -190,6 +207,10 @@ class LoginScreen extends StatelessWidget {
                     color: AppTheme.neutral400, fontSize: 10.sp,),
                   textAlign: TextAlign.center
               ).tr(),
+            ),
+
+            Space(
+              height: 2.h,
             ),
 
 
