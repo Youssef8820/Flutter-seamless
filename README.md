@@ -1,6 +1,8 @@
-# smart_soft
+![alt text](https://github.com/Rashad-seada/Flutter-Starter-Project-with-auth/blob/master/Mockup%204.png?raw=true)
 
-A new Flutter project.
+# Flutter Starter Project
+
+A new Flutter project with onboarding, login, registration, reset password, and otp screens.
 
 ## Getting Started
 
