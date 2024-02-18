@@ -1,8 +1,8 @@
-![alt text](https://github.com/Rashad-seada/Flutter-Starter-Project-with-auth/blob/master/Mockup%204.png?raw=true)
+![alt text]([[https://github.com/Rashad-seada/Flutter-Starter-Project-with-auth/blob/master/Mockup%204.png?raw=true](https://github.com/Rashad-seada/Flutter-seamless/blob/master/Mockup%205.png?raw=true](https://github.com/Rashad-seada/Flutter-seamless/blob/master/Mockup%205.png))
 
-# Flutter Starter Project
+# Seamless Project
 
-A new Flutter project with onboarding, login, registration, reset password, and otp screens.
+A Flutter project for investing in realstate.
 
 ## Getting Started
 
