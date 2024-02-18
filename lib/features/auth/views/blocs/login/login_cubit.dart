@@ -37,9 +37,11 @@ class LoginCubit extends Cubit<LoginState> {
   }
 
   onLoginClick(BuildContext context){
-    if(formKey.currentState!.validate()) {
-      login(context);
-    }
+    // if(formKey.currentState!.validate()) {
+    //   login(context);
+    // }
+    navigateToMainScreen(context);
+
   }
 
   onRegisterClick(BuildContext context){
@@ -61,7 +63,7 @@ class LoginCubit extends Cubit<LoginState> {
         },
         (user) {
           emit(LoginSuccess());
-          navigateToNextScreen(context);
+          navigateToMainScreen(context);
           emit(LoginInitial());
         }
       )
@@ -72,8 +74,8 @@ class LoginCubit extends Cubit<LoginState> {
     Navigator.pushReplacement(context,MaterialPageRoute(builder: (_)=> const RegisterScreen()));
   }
 
-  navigateToNextScreen(BuildContext context){
-
+  navigateToMainScreen(BuildContext context){
+    Navigator.push(context,MaterialPageRoute(builder: (_)=> MainScreen()));
   }
 
   navigateToResetPasswordScreen(BuildContext context){
