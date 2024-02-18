@@ -1,15 +1,15 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:sizer/sizer.dart';
-import 'package:smart_soft/generated/locale_keys.g.dart';
 import '../../config/app_images.dart';
 import '../../config/app_theme.dart';
 
 class CustomBackButton extends StatelessWidget {
+  String title;
   void Function()? onPressed;
 
-  CustomBackButton({super.key,this.onPressed});
+
+  CustomBackButton({super.key,this.title = "",this.onPressed});
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +29,7 @@ class CustomBackButton extends StatelessWidget {
               padding: EdgeInsets.all(2.w),
               alignment: Alignment.center,
               decoration: const BoxDecoration(
-                color: AppTheme.neutral200,
+                color: AppTheme.neutral100,
                 shape: BoxShape.circle
               ),
               child: SvgPicture.asset(AppImages.arrow,
@@ -38,6 +38,18 @@ class CustomBackButton extends StatelessWidget {
               ),
             )
         ),
+
+        Text(
+          title,
+          style: AppTheme.mainTextStyle(
+            color: AppTheme.neutral700,
+            fontSize: 14.sp,
+          ),
+        ),
+
+        SizedBox(
+          width: 5.w,
+        )
 
 
       ],

@@ -1,13 +1,12 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:sizer/sizer.dart';
-import 'package:smart_soft/core/config/app_images.dart';
-import 'package:smart_soft/core/views/widgets/custom_divider.dart';
-import 'package:smart_soft/core/views/widgets/space.dart';
-import 'package:smart_soft/features/auth/views/screens/01_login_screen.dart';
-import 'package:smart_soft/features/auth/views/screens/02_register_screen.dart';
-import 'package:smart_soft/generated/locale_keys.g.dart';
+import '/core/config/app_images.dart';
+import '/core/views/widgets/custom_divider.dart';
+import '/core/views/widgets/space.dart';
+import '/features/auth/views/screens/01_login_screen.dart';
+import '/features/auth/views/screens/02_register_screen.dart';
+import '/generated/locale_keys.g.dart';
 
 import '../../../../core/config/app_theme.dart';
 import '../../../../core/views/widgets/main_button.dart';

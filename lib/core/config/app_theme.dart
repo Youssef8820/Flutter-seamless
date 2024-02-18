@@ -16,7 +16,9 @@ abstract class AppTheme {
   static const Color neutral200 = Color(0xffE5E7EB);
   static const Color neutral100 = Color(0xffF4F4F5);
 
-  static const Color primary900 = Color(0xff981B20);
+  static const Color primary900 = Color(0xffd1bc4a);
+  static const Color secondary900 = Color(0xff12223c);
+
   static const Color primary800 = Color(0xffE61E29);
   static const Color primary700 = Color(0xffE93842);
   static const Color primary600 = Color(0xffEB5058);

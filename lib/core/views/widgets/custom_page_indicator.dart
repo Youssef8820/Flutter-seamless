@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:sizer/sizer.dart';
-import 'package:smart_soft/core/config/app_theme.dart';
+import '/core/config/app_theme.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 

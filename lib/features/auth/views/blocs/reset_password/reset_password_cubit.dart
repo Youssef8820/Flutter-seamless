@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:meta/meta.dart';
-import 'package:smart_soft/features/auth/views/screens/04_otp_screen.dart';
+import '/features/auth/views/screens/04_otp_screen.dart';
 
 import '../../../../../core/di/app_module.dart';
 import '../../../../../core/usecases/validate_phone_use_case.dart';

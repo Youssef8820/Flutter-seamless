@@ -56,84 +56,84 @@ class _CustomTextFieldState extends State<CustomTextField> {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: widget.width,
-      child: TextFormField(
+    return TextFormField(
 
-        focusNode: widget.focusNode,
-        onTap: widget.onTap,
-        onFieldSubmitted: widget.onFieldSubmitted,
-        keyboardType: widget.keyboardType,
-        enabled: widget.enabled,
-        onTapOutside: widget.onTapOutside,
-        onChanged: widget.onChanged,
-        validator: widget.validator,
-        controller: widget.controller,
-        obscureText: widget.isSecure && displaySecureText,
-        decoration: InputDecoration(
-          suffixIcon: (widget.isSecure)? Padding(
-            padding: EdgeInsets.all(3.w),
-            child: InkWell(
-              onTap: (){
-                displaySecureText = !displaySecureText;
-                setState(() {});
-              },
-              child: SvgPicture.asset(
-                AppImages.eye,
-                width: 3.w,
-                height: 3.h,
-              ),
+      focusNode: widget.focusNode,
+      onTap: widget.onTap,
+      onFieldSubmitted: widget.onFieldSubmitted,
+      keyboardType: widget.keyboardType,
+      enabled: widget.enabled,
+      onTapOutside: widget.onTapOutside,
+      onChanged: widget.onChanged,
+      validator: widget.validator,
+      controller: widget.controller,
+      obscureText: widget.isSecure && displaySecureText,
+      decoration: InputDecoration(
+        filled: true,
+
+        fillColor: AppTheme.neutral100,
+        suffixIcon: (widget.isSecure)? Padding(
+          padding: EdgeInsets.all(3.w),
+          child: InkWell(
+            onTap: (){
+              displaySecureText = !displaySecureText;
+              setState(() {});
+            },
+            child: SvgPicture.asset(
+              AppImages.eye,
+              width: 3.w,
+              height: 3.h,
             ),
-          ) : null,
-          contentPadding: EdgeInsets.symmetric(
-              vertical: (widget.height == null) ? 1.5.h : widget.height!, horizontal: 1.w),
-          // Adjust the vertical padding as needed
-
-
-          hintText: widget.hint,
-          labelText: widget.label,
-
-          labelStyle: TextStyle(
-            color: AppTheme.neutral400,
-            fontSize: AppTheme.font16.sp,
-            fontWeight: FontWeight.w400,
           ),
+        ) : null,
+        contentPadding: EdgeInsets.symmetric(
+            vertical: (widget.height == null) ? 1.5.h : widget.height!, horizontal: 1.w),
+        // Adjust the vertical padding as needed
 
 
+        hintText: widget.hint,
+        labelText: widget.label,
 
-          prefixIcon: widget.prefixIcon,
-
-          hintStyle: TextStyle(
-            color: AppTheme.neutral400,
-            fontSize: AppTheme.font14.sp,
-            fontWeight: FontWeight.w400,
-          ),
-
-          disabledBorder: OutlineInputBorder(
-              borderSide:
-                  const BorderSide(color: AppTheme.neutral400, width: 1),
-              borderRadius: widget.borderRadius),
-
-          enabledBorder: OutlineInputBorder(
-              borderSide:
-                  const BorderSide(color: AppTheme.neutral300, width: 1),
-              borderRadius: widget.borderRadius),
-
-          focusedBorder: OutlineInputBorder(
-              borderSide:
-                  const BorderSide(color: AppTheme.neutral900, width: 1),
-              borderRadius: widget.borderRadius),
-
-          errorBorder: OutlineInputBorder(
-              borderSide: const BorderSide(color: AppTheme.error, width: 1),
-              borderRadius: widget.borderRadius),
-
-          focusedErrorBorder: OutlineInputBorder(
-              borderSide: const BorderSide(color: AppTheme.error, width: 1),
-              borderRadius: widget.borderRadius),
+        labelStyle: TextStyle(
+          color: AppTheme.neutral400,
+          fontSize: AppTheme.font16.sp,
+          fontWeight: FontWeight.w400,
         ),
-        onEditingComplete: widget.onEditingComplete,
+
+
+
+        prefixIcon: widget.prefixIcon,
+
+        hintStyle: TextStyle(
+          color: AppTheme.neutral400,
+          fontSize: AppTheme.font14.sp,
+          fontWeight: FontWeight.w400,
+        ),
+
+        disabledBorder: OutlineInputBorder(
+            borderSide:
+                const BorderSide(color: AppTheme.neutral400, width: 1),
+            borderRadius: widget.borderRadius),
+
+        enabledBorder: OutlineInputBorder(
+            borderSide:
+                const BorderSide(color: AppTheme.neutral100, width: 1),
+            borderRadius: widget.borderRadius),
+
+        focusedBorder: OutlineInputBorder(
+            borderSide:
+                const BorderSide(color: AppTheme.neutral100, width: 1),
+            borderRadius: widget.borderRadius),
+
+        errorBorder: OutlineInputBorder(
+            borderSide: const BorderSide(color: AppTheme.error, width: 1),
+            borderRadius: widget.borderRadius),
+
+        focusedErrorBorder: OutlineInputBorder(
+            borderSide: const BorderSide(color: AppTheme.error, width: 1),
+            borderRadius: widget.borderRadius),
       ),
+      onEditingComplete: widget.onEditingComplete,
     );
   }
 }

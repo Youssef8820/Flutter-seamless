@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:sizer/sizer.dart';
-import 'package:smart_soft/features/auth/views/blocs/reset_password/reset_password_cubit.dart';
+import '/features/auth/views/blocs/reset_password/reset_password_cubit.dart';
 
 import '../../../../core/config/app_images.dart';
 import '../../../../core/config/app_theme.dart';

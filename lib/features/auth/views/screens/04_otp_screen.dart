@@ -1,21 +1,16 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:sizer/sizer.dart';
-import 'package:smart_soft/features/auth/views/blocs/otp/otp_cubit.dart';
-import 'package:smart_soft/features/auth/views/blocs/reset_password/reset_password_cubit.dart';
-import 'package:smart_soft/features/auth/views/widgets/pin_text_field.dart';
+import '/features/auth/views/blocs/otp/otp_cubit.dart';
+import '/features/auth/views/widgets/pin_text_field.dart';
 
-import '../../../../core/config/app_images.dart';
 import '../../../../core/config/app_theme.dart';
 import '../../../../core/views/widgets/custom_back_button.dart';
 import '../../../../core/views/widgets/custom_progress_indicator.dart';
-import '../../../../core/views/widgets/custom_text_field.dart';
 import '../../../../core/views/widgets/main_button.dart';
 import '../../../../core/views/widgets/space.dart';
 import '../../../../generated/locale_keys.g.dart';
-import '../blocs/login/login_cubit.dart';
 
 class OtpScreen extends StatelessWidget {
 

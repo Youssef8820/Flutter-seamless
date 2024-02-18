@@ -2,12 +2,10 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:meta/meta.dart';
-import 'package:smart_soft/features/auth/domain/usecases/confirm_otp_use_case.dart';
 
 import '../../../../../core/di/app_module.dart';
 import '../../../../../core/errors/failure.dart';
 import '../../../../../core/views/widgets/custom_flush_bar.dart';
-import '../../../domain/usecases/send_otp_use_case.dart';
 
 part 'otp_state.dart';
 
@@ -44,43 +42,10 @@ class OtpCubit extends Cubit<OtpState> {
   }
 
   sendOtp(BuildContext context,String phoneNumber){
-    emit(OtpLoading());
-    getIt<SendOtpUseCase>().call(phoneNumber)
-        .then((value) => value.fold(
-            (error) {
-          emit(OtpError(error));
-          showFlushBar(
-              context,
-              title: "Error ${error.failureCode}",
-              message : error.message
-          );
-          emit(OtpInitial());
-        },
-            (success) {
-          emit(OtpSuccess());
-          emit(OtpInitial());
-        }
-    ));
+
   }
 
   confirmOtp(BuildContext context,String otp){
-    emit(OtpLoading());
-    getIt<ConfirmOtpUseCase>().call(otp)
-        .then((value) => value.fold(
-            (error) {
-          emit(OtpError(error));
-          showFlushBar(
-              context,
-              title: "Error ${error.failureCode}",
-              message : error.message
-          );
-          emit(OtpInitial());
-        },
-            (success) {
-          emit(OtpSuccess());
-          emit(OtpInitial());
-        }
-    ));
 
   }
 

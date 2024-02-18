@@ -1,6 +1,6 @@
 import 'package:another_flushbar/flushbar.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:smart_soft/core/config/app_theme.dart';
+import '/core/config/app_theme.dart';
 
 showFlushBar(
     BuildContext context,

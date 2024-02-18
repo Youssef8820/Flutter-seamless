@@ -1,13 +1,14 @@
+import 'package:Mawthoq/core/usecases/validate_email_use_case.dart';
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
-import 'package:smart_soft/core/di/app_module.dart';
-import 'package:smart_soft/core/errors/failure.dart';
-import 'package:smart_soft/core/usecases/validate_password_use_case.dart';
-import 'package:smart_soft/core/usecases/validate_phone_use_case.dart';
-import 'package:smart_soft/features/auth/domain/usecases/sign_in_use_case.dart';
-import 'package:smart_soft/features/auth/views/screens/02_register_screen.dart';
-import 'package:smart_soft/features/auth/views/screens/03_reset_password_screen.dart';
+import '/core/di/app_module.dart';
+import '/core/errors/failure.dart';
+import '/core/usecases/validate_password_use_case.dart';
+import '/core/usecases/validate_phone_use_case.dart';
+import '/features/auth/domain/usecases/login_use_case.dart';
+import '/features/auth/views/screens/02_register_screen.dart';
+import '/features/auth/views/screens/03_reset_password_screen.dart';
 
 import '../../../../../core/views/widgets/custom_flush_bar.dart';
 
@@ -16,14 +17,15 @@ part 'login_state.dart';
 class LoginCubit extends Cubit<LoginState> {
   LoginCubit() : super(LoginInitial());
 
-  TextEditingController phoneNumberController = TextEditingController();
+  TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   bool rememberMe = true;
 
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
-  String? validatePhone(){
-    return getIt<ValidatePhoneUseCase>().call(phoneNumberController.text);
+
+  String? validateEmail(){
+    return getIt<ValidateEmailUseCase>().call(emailController.text);
   }
 
   String? validatePassword(){
@@ -46,7 +48,7 @@ class LoginCubit extends Cubit<LoginState> {
 
   login(BuildContext context){
     emit(LoginLoading());
-    getIt<SignInUseCase>().call(phoneNumberController.text, passwordController.text).then(
+    getIt<LoginUseCase>().call(emailController.text, passwordController.text).then(
       (value) => value.fold(
         (error) {
           emit(LoginError(error));
@@ -67,7 +69,7 @@ class LoginCubit extends Cubit<LoginState> {
   }
 
   navigateToRegisterScreen(BuildContext context){
-    Navigator.push(context,MaterialPageRoute(builder: (_)=> const RegisterScreen()));
+    Navigator.pushReplacement(context,MaterialPageRoute(builder: (_)=> const RegisterScreen()));
   }
 
   navigateToNextScreen(BuildContext context){

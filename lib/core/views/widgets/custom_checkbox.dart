@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sizer/sizer.dart';
-import 'package:smart_soft/core/views/widgets/space.dart';
+import '/core/views/widgets/space.dart';
 
 import '../../../../core/config/app_theme.dart';
 

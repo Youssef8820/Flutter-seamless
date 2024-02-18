@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pinput/pinput.dart';
 import 'package:sizer/sizer.dart';
-import 'package:smart_soft/core/config/app_theme.dart';
+import '/core/config/app_theme.dart';
 
 class PinTextField extends StatelessWidget {
   void Function(String)? onCompleted;
