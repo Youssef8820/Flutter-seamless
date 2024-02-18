@@ -1,8 +1,8 @@
 ![alt text](https://github.com/Rashad-seada/Flutter-Starter-Project-with-auth/blob/master/Mockup%204.png?raw=true)
 
-# Flutter Starter Project
+# S Project
 
-A new Flutter project with onboarding, login, registration, reset password, and otp screens.
+A Flutter project for investing in realstate.
 
 ## Getting Started
 
