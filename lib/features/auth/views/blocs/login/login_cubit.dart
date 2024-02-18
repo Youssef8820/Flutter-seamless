@@ -2,6 +2,7 @@ import 'package:Mawthoq/core/usecases/validate_email_use_case.dart';
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
+import '../../../../main/views/main_screen.dart';
 import '/core/di/app_module.dart';
 import '/core/errors/failure.dart';
 import '/core/usecases/validate_password_use_case.dart';
