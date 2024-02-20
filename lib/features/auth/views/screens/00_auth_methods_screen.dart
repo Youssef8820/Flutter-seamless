@@ -14,6 +14,7 @@ import '/generated/locale_keys.g.dart';
 import '../../../../core/config/app_theme.dart';
 import '../../../../core/views/widgets/main_button.dart';
 
+//modefied
 class AuthMethodsScreen extends StatelessWidget {
   const AuthMethodsScreen({Key? key}) : super(key: key);
 
